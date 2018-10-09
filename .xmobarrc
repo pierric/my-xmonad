@@ -9,9 +9,19 @@ Config { font = "xft:WenQuanYi Micro Hei:size=16:bold:antialias=true"
                     , Run Memory ["-t","Mem: <usedratio>%"] 10
                     , Run Date "%a %b %_d %Y %H:%M:%S" "date" 10
                     , Run Volume "default" "Master" [] 10
+                    , Run Wireless "wlo1" 
+                          [ "-a", "l"
+                          , "-w", "4"
+                          , "-t", "<fc=#8888FF>WLAN:</fc> <qualityvbar>"
+                          , "-L", "50"
+                          , "-H", "75"
+                          , "-l", "red"
+                          , "-n", "yellow"
+                          , "-h", "green"
+                          ] 10
                     , Run StdinReader
                     ]
        , sepChar = "%"
        , alignSep = "}{"
-       , template = "%StdinReader% | %cpu% | %memory% }{<fc=#ee9a00>%date%</fc> | %default:Master% | %battery% "
+       , template = "%StdinReader% | %cpu% | %memory% }{<fc=#ee9a00>%date%</fc> | %wlo1wi% | %default:Master% | %battery% "
        }
