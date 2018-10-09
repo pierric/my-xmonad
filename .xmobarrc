@@ -1,0 +1,17 @@
+Config { font = "xft:WenQuanYi Micro Hei:size=16:bold:antialias=true"
+       , borderColor = "black"
+       , border = TopB
+       , bgColor = "black"
+       , fgColor = "grey"
+       , position = TopW L 100
+       , commands = [ Run Battery ["-t", "<acstatus>: <left>%", "--", "-O", "AC", "-o", "Bat",	"-h", "green", "-l", "red"] 10
+                    , Run Cpu ["-L","3","-H","50","--normal","green","--high","red"] 10
+                    , Run Memory ["-t","Mem: <usedratio>%"] 10
+                    , Run Date "%a %b %_d %Y %H:%M:%S" "date" 10
+                    , Run Volume "default" "Master" [] 10
+                    , Run StdinReader
+                    ]
+       , sepChar = "%"
+       , alignSep = "}{"
+       , template = "%StdinReader% | %cpu% | %memory% }{<fc=#ee9a00>%date%</fc> | %default:Master% | %battery% "
+       }
