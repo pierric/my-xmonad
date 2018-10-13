@@ -1,0 +1,13 @@
+D1=eDP-1-1
+D2=DP-0
+
+func=${1:-cape}
+
+case $func in
+  cape) #xrandr --output $D1 --auto --pos 0x1080 --output $D2 --mode 3840x2160 --scale 0.8x0.8 --pos 1920x0
+        xrandr --output $D1 --mode 1920x1080 --pos 0x1488 --rotate normal --output $D2 --mode 3840x2160 --pos 1920x0 --rotate normal --scale 0.8x0.8 
+       ;;
+  off) xrandr --output $D1 --auto --output $D2 --off
+       ;;
+  *)   echo $0 cape/off
+esac
